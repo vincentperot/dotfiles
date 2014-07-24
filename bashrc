@@ -159,15 +159,14 @@ up() {
 
 
 # Aliases for frequently accessed folders.
-alias docs="cd /home/erin/Documents/"
-alias dtp="cd /home/erin/Desktop/"
-alias dls="cd /home/erin/Downloads/"
-alias uni="cd /home/erin/Documents/University/2013-2014/"
-alias gitdir="cd /home/erin/Git/"
-alias cps="cd /home/erin/Documents/'Coding Practice Sandbox'"
-alias cl="cd /home/erin/Git/cl-research-2014"
-alias 137="cd /home/erin/Git/mat137"
-alias 263="cd /home/erin/Git/csc263"
+alias docs="cd ~/Documents/"
+alias dtp="cd ~/Desktop/"
+alias dls="cd ~/Downloads/"
+alias gitdir="cd ~/Git/"
+alias cps="cd ~/Documents/'Coding Practice Sandbox'"
+alias cl="cd ~/Git/cl-research-2014"
+alias 137="cd ~/Git/mat137"
+alias 263="cd ~/Git/csc263"
 
 # Aliases for CDF remote access.
 alias cdf="ssh c2grante@cdf.utoronto.ca"
@@ -180,7 +179,7 @@ alias ipython="ipython3"
 alias nb="ipython3 notebook --profile improvedcs"
 
 # Alias to use python checking script.
-alias pep8="python /home/erin/Documents/'Coding Practice Sandbox'/pep8.py"
+alias pep8="python ~/Documents/'Coding Practice Sandbox'/pep8.py"
 
 # For compiling C programs.
 alias compile="gcc -Wall -g -o"
@@ -219,3 +218,6 @@ alias gd='git diff'
 alias go='git checkout'
 alias gk='gitk --all&'
 alias gx='gitx --all'
+
+# Clear the junk.
+alias springcleaning="rm -f *.aux *.log *.dvi *.out *~ *.junk"

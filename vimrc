@@ -488,3 +488,5 @@ function! <SID>BufcloseCloseIt()
    endif
 endfunction
 
+" Switch off the highlighting of the current results with ENTER
+nnoremap <CR> :nohlsearch<CR><CR>
