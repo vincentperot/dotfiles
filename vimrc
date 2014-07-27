@@ -68,6 +68,7 @@ set magic
 
 " Show matching brackets when text indicator is over them
 set showmatch
+"
 " How many tenths of a second to blink when matching brackets
 set mat=2
 
@@ -76,7 +77,6 @@ set noerrorbells
 set novisualbell
 set t_vb=
 set tm=500
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
@@ -257,9 +257,8 @@ set smarttab
 set shiftwidth=4
 set tabstop=4
 
-" Linebreak on 500 characters
+" Linebreak on 79 characters
 set lbr
-set tw=80
 
 set ai "Auto indent
 set si "Smart indent
@@ -281,10 +280,6 @@ vnoremap <silent> # :call VisualSelection('b')<CR>
 " Treat long lines as break lines (useful when moving around in them)
 map j gj
 map k gk
-
-" Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
-map <space> /
-map <c-space> ?
 
 " Disable highlight when <leader><cr> is pressed
 map <silent> <leader><cr> :noh<cr>
@@ -426,8 +421,6 @@ map <leader>q :e ~/buffer<cr>
 " Toggle paste mode on and off
 map <leader>pp :setlocal paste!<cr>
 
-
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -490,3 +483,18 @@ endfunction
 
 " Switch off the highlighting of the current results with ENTER
 nnoremap <CR> :nohlsearch<CR><CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => File-specific actions
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Automatic creation of header in C files
+autocmd bufnewfile *.c so /home/jsmith/c_header.txt
+autocmd bufnewfile *.c exe "1," . 10 . "g/File Name :.*/s//File Name : " .expand("%")
+autocmd bufnewfile *.c exe "1," . 10 . "g/Creation Date :.*/s//Creation Date : " .strftime("%d-%m-%Y")
+autocmd Bufwritepre,filewritepre *.c execute "normal ma"
+autocmd Bufwritepre,filewritepre *.c exe "1," . 10 . "g/Last Modified :.*/s/Last Modified :.*/Last Modified : " .strftime("%c")
+autocmd bufwritepost,filewritepost *.c execute "normal `a"
+
+" Disable lines breaks in txt, TeX, Rnw and csv files
+au BufRead,BufNewFile *.txt,*.tex,*.csv,*.Rnw set wrap linebreak nolist textwidth=0 wrapmargin=0
