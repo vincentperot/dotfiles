@@ -1,0 +1,109 @@
+% Package Name
+\ProvidesPackage{selfdefcommands}
+% The following is from David Liu's 2014 CSC236 class.
+
+% Dependencies
+\RequirePackage{amsmath}
+\RequirePackage{amsfonts}
+\RequirePackage{mathtools} % Piecewise functions
+\RequirePackage{amsthm}
+\RequirePackage{amssymb} % Required for "does not divide" symbol
+\RequirePackage{listings} % For python code
+\RequirePackage{color}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+% Package providing macros and environments for LaTeX course materials 
+% at the Department of Computer Science, University of Toronto.
+% Copyright 2013, David Liu
+% Version 1.1, Nov 27, 2013
+
+% Semantic names for propositional connectives (and "logical True/False")
+\newcommand{\NOT}{\neg}
+\newcommand{\AND}{\wedge}
+\newcommand{\OR}{\vee}
+\newcommand{\IMP}{\Rightarrow}
+\newcommand{\IFF}{\Leftrightarrow}
+\newcommand{\Iff}{\Longleftrightarrow} % Symbol used in equivalence derivations
+\newcommand{\TRUE}{\text{TRUE}}
+\newcommand{\FALSE}{\text{FALSE}}
+
+% Semantic name for a "divides" symbol.
+\newcommand{\DIV}{\mid}
+\newcommand{\NDIV}{\nmid}
+
+% Number sets
+\newcommand{\N}{\mathbb N} % Naturals
+\newcommand{\Z}{\mathbb Z} % Integers
+\newcommand{\Q}{\mathbb Q} % Rationals
+\newcommand{\R}{\mathbb R} % Reals
+\ifdefined\C
+    \renewcommand{\C}{\mathbb C} % Complex numbers
+\else
+    \newcommand{\C}{\mathbb C}
+\fi
+
+% A script font
+\newcommand{\cA}{\mathcal A}
+\newcommand{\cB}{\mathcal B}
+\newcommand{\cC}{\mathcal C}
+\newcommand{\cD}{\mathcal D}
+\newcommand{\cE}{\mathcal E}
+\newcommand{\cF}{\mathcal F}
+\newcommand{\cH}{\mathcal H}
+\newcommand{\cI}{\mathcal I}
+\newcommand{\cJ}{\mathcal J}
+\newcommand{\cL}{\mathcal L}
+\newcommand{\cK}{\mathcal K}
+\newcommand{\cN}{\mathcal N}
+\newcommand{\cO}{\mathcal O}
+\newcommand{\cP}{\mathcal P}
+\newcommand{\cQ}{\mathcal Q}
+\newcommand{\cS}{\mathcal S}
+\newcommand{\cT}{\mathcal T}
+\newcommand{\cV}{\mathcal V}
+\newcommand{\cW}{\mathcal W}
+\newcommand{\cZ}{\mathcal Z}
+
+% Short forms for set notation
+\newcommand{\emp}{\emptyset}
+\newcommand{\bs}{\backslash}
+
+% Math functions
+\newcommand{\floor}[1]{\left \lfloor #1 \right \rfloor} % Floor function
+\newcommand{\ceil}[1]{\left \lceil #1 \right \rceil} % Ceiling function
+\newcommand{\abs}[1]{\left | #1 \right |} % Absolute value
+\DeclareMathOperator{\lcm}{lcm}
+
+% Colors used in Python environment
+\definecolor{pygreen}{rgb}{0.1, 0.6, 0.0}
+\definecolor{pybrown}{rgb}{0.3, 0.1, 0.1}
+
+% Python environment with syntax highlighting, based on listing environment
+\lstnewenvironment
+  {python}
+  {\lstset{
+    basicstyle=\ttfamily,
+    frame=tb,
+    tabsize=2,
+    numbers=left,
+    numbersep=5pt,
+    keywords=[1]{def,if,else,elif,while,for,break,return,continue},
+    keywordstyle=[1]\color{blue}\bfseries,
+    comment=[s][\color{pygreen}]{'''}{'''},
+    comment=[s][\color{pygreen}]{"""}{"""},
+    comment=[l][\color{pybrown}]\#,
+    emph=[2]{len,print,floor,ceil,append,extend},
+    emphstyle=[2]
+    }}
+  {}    
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+% math commands
+\newcommand{\dd}{\, \mathrm{d}} % d for integrals
+\newcommand{\qed}{\hfill$\blacksquare$} % qed to end proof
+
+% tabular environment
+% use multilinecell{A \\ B \\ C \\ D} to create multi-line table cells
+\newcommand{\specialcell}[2][c]{\begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}

@@ -223,3 +223,6 @@ alias rswiki='cd ~/research_wiki/; gitit &'
 
 # Clear the junk.
 alias springcleaning="rm -f *.aux *.log *.dvi *.out *~ *.junk"
+
+# Add a home directory bin folder to the path.
+export PATH=~/bin:$PATH
