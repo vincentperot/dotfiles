@@ -219,5 +219,7 @@ alias go='git checkout'
 alias gk='gitk --all&'
 alias gx='gitx --all'
 
+alias rswiki='cd ~/research_wiki/; gitit &'
+
 # Clear the junk.
 alias springcleaning="rm -f *.aux *.log *.dvi *.out *~ *.junk"
