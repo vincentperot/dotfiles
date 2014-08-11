@@ -8,6 +8,7 @@ mkdir -p ${DIR}/backups
 mkdir -p ~/texmf/
 mkdir -p ~/texmf/tex/
 mkdir -p ~/texmf/tex/latex/
+mkdir -p ~/.vim/colors/
 
 mv ~/.bashrc ${DIR}/backups/${NOW}_bashrc.backup
 ln -s ${DIR}/bashrc ~/.bashrc
@@ -56,3 +57,6 @@ echo "Created beamerthemeacademic.sty symbolic link."
 mv ~/texmf/tex/latex/beamerposter.sty ${DIR}/backups/${NOW}_beamerposter.sty.backup
 ln -s ${DIR}/beamerposter.sty ~/texmf/tex/latex/beamerposter.sty
 echo "Created beamerposter.sty symbolic link."
+
+ln -s ${DIR}/neon.vim ~/.vim/colors/neon.vim
+echo "Created vim neon colour file symbolic link."
