@@ -3,7 +3,11 @@
 DIR="$( cd "$( dirname "$0" )" && pwd )"
 NOW=$(date +"%m-%d-%Y")
 
+# make sure that the directories exist
 mkdir -p ${DIR}/backups
+mkdir -p ~/texmf/
+mkdir -p ~/texmf/tex/
+mkdir -p ~/texmf/tex/latex/
 
 mv ~/.bashrc ${DIR}/backups/${NOW}_bashrc.backup
 ln -s ${DIR}/bashrc ~/.bashrc
@@ -52,4 +56,3 @@ echo "Created beamerthemeacademic.sty symbolic link."
 mv ~/texmf/tex/latex/beamerposter.sty ${DIR}/backups/${NOW}_beamerposter.sty.backup
 ln -s ${DIR}/beamerposter.sty ~/texmf/tex/latex/beamerposter.sty
 echo "Created beamerposter.sty symbolic link."
-

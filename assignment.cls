@@ -3,21 +3,33 @@
 \renewcommand{\normalsize}{\fontsize{10pt}{13pt}\selectfont}
 
 % Default paper size letter
-\usepackage[letterpaper, margin=1.25cm]{geometry}
+\RequirePackage[letterpaper, margin=2.54cm]{geometry}
+\RequirePackage{fancyhdr}
 
-% Set margins
-\oddsidemargin .5in    %   Note \oddsidemargin = \evensidemargin
-\evensidemargin .5in
-\marginparwidth 0.07 true in
-%\marginparwidth 0.75 true in
-%\topmargin 0 true pt           % Nominal distance from top of page to top of
-%\topmargin 0.125in
-\topmargin -0.625in
-\addtolength{\headsep}{0.25in}
-\textheight 9.0 true in       % Height of text (including footnotes & figures)
-\textwidth 5.5 true in        % Width of text line.
-\widowpenalty=10000
-\clubpenalty=10000
+% commands to set title and header block info
+\newcommand\submissiontitle[1]{\renewcommand\@submissiontitle{#1}}
+\newcommand\@submissiontitle{\@latex@error{No \noexpand\submissiontitle given}\@ehc}
+\newcommand\authorname[1]{\renewcommand\@authorname{#1}}
+\newcommand\@authorname{\@latex@error{No \noexpand\authorname given}\@ehc}
+\newcommand\studentnumber[1]{\renewcommand\@studentnumber{#1}}
+\newcommand\@studentnumber{\@latex@error{No \noexpand\studentnumber given}\@ehc}
+\newcommand\instructorname[1]{\renewcommand\@instructorname{#1}}
+\newcommand\@instructorname{\@latex@error{No \noexpand\instructorname given}\@ehc}
+\newcommand\course[1]{\renewcommand\@course{#1}}
+\newcommand\@course{\@latex@error{No \noexpand\course given}\@ehc}
+\newcommand\duedate[1]{\renewcommand\@duedate{#1}}
+\newcommand\@duedate{\@latex@error{No \noexpand\duedate given}\@ehc}
+
+\pagestyle{fancy}
+\fancyhf{} % clear the commands
+\lhead{\it \@authorname}
+\chead{\it \@course : \@submissiontitle}
+\rhead{\it \@duedate}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.001pt}
+
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
 
 % Title bars
 \def\toptitlebar{\hrule height4pt\vskip .25in\vskip-\parskip}
@@ -25,12 +37,15 @@
 
 \def\@maketitle{\vbox{\hsize\textwidth
     \linewidth\hsize \vskip 0.1in \toptitlebar \centering
-    {\LARGE\bf \@title\par}  \bottomtitlebar % \vskip 0.1in %  minus
+    {\LARGE\bf\@course : \@title\par}  \bottomtitlebar % \vskip 0.1in %  minus
     \def\And{\end{tabular}\hfil\linebreak[0]\hfil
         \begin{tabular}[t]{c}\bf\rule{\z@}{24pt}\ignorespaces}% 
     \def\AND{\end{tabular}\hfil\linebreak[4]\hfil
         \begin{tabular}[t]{c}\bf\rule{\z@}{24pt}\ignorespaces}% 
-    \begin{tabular}[t]{c}\bf\rule{\z@}{24pt}\@author\end{tabular}% 
+    \begin{tabular}[t]{c}\bf\rule{\z@}{24pt}
+        \large{\@authorname}\\
+        Student number: \@studentnumber\\
+        \@duedate\end{tabular}% 
 \vskip 0.3in minus 0.1in}}
 
 % Allow TeX to put a widowed line at the bottom of previous page
@@ -51,3 +66,25 @@
     0.5ex minus .2ex}{-1em}{\normalsize\bf}}
 \def\subparagraph{\@startsection{subparagraph}{5}{\z@}{1.5ex plus 
     0.5ex minus .2ex}{-1em}{\normalsize\bf}}
+
+% problem-solution formatting
+% Set up counters for problems and subsections
+ 
+\newcounter{ProblemNum}
+\newcounter{SubProblemNum}[ProblemNum]
+ 
+\renewcommand{\theProblemNum}{\arabic{ProblemNum}}
+\renewcommand{\theSubProblemNum}{\alph{SubProblemNum}}
+ 
+ 
+\newcommand*{\anyproblem}[1]{\newpage\subsection*{#1}}
+\newcommand*{\problem}[1]{\stepcounter{ProblemNum} %
+\anyproblem{Problem \theProblemNum. \; #1}}
+\newcommand*{\soln}[1]{\subsubsection*{#1}}
+\newcommand*{\solution}{\soln{Solution}}
+\renewcommand*{\part}{\stepcounter{SubProblemNum} %
+\soln{Part (\theSubProblemNum)}}
+ 
+%\renewcommand{\theenumi}{(\alph{enumi})}
+%\renewcommand{\labelenumi}{\theenumi}
+%\renewcommand{\theenumii}{\roman{enumii}}
