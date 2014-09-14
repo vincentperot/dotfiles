@@ -367,3 +367,6 @@ autocmd bufwritepost,filewritepost *.c execute "normal `a"
 
 " Disable lines breaks in txt, TeX, Rnw and csv files
 au BufRead,BufNewFile *.txt,*.tex,*.csv,*.Rnw set wrap linebreak nolist textwidth=0 wrapmargin=0
+
+" Set the system clipboard as the defualt register
+set clipboard+=unnamedplus
