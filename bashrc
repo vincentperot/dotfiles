@@ -226,3 +226,4 @@ alias springcleaning="rm -f *.aux *.log *.dvi *.out *~ *.junk"
 
 # Add a home directory bin folder to the path.
 export PATH=~/bin:$PATH
+export PATH=~/local/bin:$PATH
