@@ -4,6 +4,7 @@
 
 % Dependencies
 \RequirePackage{amsmath}
+\RequirePackage{bm}
 \RequirePackage{amsfonts}
 \RequirePackage{mathtools} % Piecewise functions
 \RequirePackage{amsthm}
@@ -12,6 +13,7 @@
 \RequirePackage{color}
 \RequirePackage{ulem}
 \RequirePackage[algoruled,lined,longend,linesnumbered,rightnl]{algorithm2e}
+\RequirePackage[ampersand]{easylist}
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 
@@ -107,7 +109,7 @@
 
 % tabular environment
 % use multilinecell{A \\ B \\ C \\ D} to create multi-line table cells
-\newcommand{\specialcell}[2][c]{\begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+\newcommand{\specialcell}[2][l]{\begin{tabular}[#1]{@{}l@{}}#2\end{tabular}}
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 
@@ -140,7 +142,7 @@
 \let\code\texttt  % code fragments
 \let\const\textsf  % constants
 \let\var\mathrm  % multi-letter variables
-\let\pred\mathbf  % predicates
+\let\pred\bm  % predicates
 \providecommand*\stup{\textsuperscript{st}}
 \providecommand*\ndup{\textsuperscript{nd}}
 \providecommand*\rdup{\textsuperscript{rd}}
@@ -265,3 +267,12 @@
 \providecommand*\capbox[5][c]{\ifx\empty#2\empty
     \else\rlap{\raisebox{-\baselineskip}{\makebox[#3][#1]{#2}}}\fi
     \ubox[#4]{#3}{#5}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\x}{\bm{x}}
+\newcommand{\X}{\bm{X}}
+\newcommand{\y}{\bm{y}}
+\newcommand{\z}{\bm{z}}
+\newcommand{\w}{\bm{w}}
+\newcommand{\E}{\text{E}}

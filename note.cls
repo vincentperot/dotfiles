@@ -65,23 +65,4 @@
 \def\subparagraph{\@startsection{subparagraph}{5}{\z@}{1.5ex plus 
     0.5ex minus .2ex}{-1em}{\normalsize\bf}}
 
-% problem-solution formatting
-% Set up counters for problems and subsections
- 
-\newcounter{ProblemNum}
-\newcounter{SubProblemNum}[ProblemNum]
- 
-\renewcommand{\theProblemNum}{\arabic{ProblemNum}}
-\renewcommand{\theSubProblemNum}{\alph{SubProblemNum}}
- 
-\newcommand*{\anyproblem}[1]{\subsection*{#1}}
-\newcommand*{\problem}[1]{\stepcounter{ProblemNum} %
-\anyproblem{Problem \theProblemNum\vskip.04in\hrule\vskip.09in #1}}
-\renewcommand*{\part}[1]{\stepcounter{SubProblemNum} %
-\noindent\textbf{\vspace{10pt}\\\hspace*{15pt}Part (\theSubProblemNum)} \; \hangindent=15pt #1 \vspace{15pt}}
-
-\newenvironment{solution}{\hspace*{15pt}\textbf{Solution} \; \hangindent=30pt \vspace{10pt}}{}
- 
-%\renewcommand{\theenumi}{(\alph{enumi})}
-%\renewcommand{\labelenumi}{\theenumi}
-%\renewcommand{\theenumii}{\roman{enumii}}
+\newenvironment{pointform}{\hspace*{15pt}\textbf{Solution} \; \hangindent=30pt \vspace{10pt}}{}

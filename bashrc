@@ -165,13 +165,25 @@ alias dls="cd ~/Downloads/"
 alias gitdir="cd ~/Git/"
 alias cps="cd ~/Documents/'Coding Practice Sandbox'"
 alias cl="cd ~/Git/cl-research-2014"
-alias 137="cd ~/Git/mat137"
-alias 263="cd ~/Git/csc263"
+alias 257="cd ~/Git/independent-coursework/mat257"
+alias 373="cd ~/Git/independent-coursework/csc373"
+alias 411="cd ~/Git/independent-coursework/csc411"
+alias a4="cd ~/Git/csc411-A4"
+alias 336="cd ~/Git/independent-coursework/csc336"
+alias 347="cd ~/Git/independent-coursework/sta347"
 
 # Aliases for CDF remote access.
 alias cdf="ssh c2grante@cdf.utoronto.ca"
 alias matlab="ssh -X c2grante@cdf.toronto.edu matlab"
 alias cslab="ssh -l eringrant cs.toronto.edu"
+alias comps="ssh -l eringrant comps3.cs.toronto.edu"
+
+# Print to cslab printer lw-283.
+lw-283 () {
+    ssh -l eringrant cs.toronto.edu; 
+    lpr -P lw-283 $1;
+    exit
+}
 
 # Force use of python3.4.
 alias python="python3.4"
@@ -221,7 +233,7 @@ alias gp='git push'
 alias gk='gitk --all&'
 alias gx='gitx --all'
 
-alias rswiki='cd ~/research_wiki/; gitit &'
+alias rswiki='cd ~/Git/research_wiki/; gitit &'
 
 # Clear the junk.
 alias springcleaning="rm -f *.aux *.log *.dvi *.out *~ *.junk"
