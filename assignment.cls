@@ -26,7 +26,7 @@
 \chead{\it \@course : \@submissiontitle}
 \rhead{\it \@duedate}
 \fancyfoot[C]{\thepage}
-\renewcommand{\headrulewidth}{0.001pt}
+\renewcommand{\headrulewidth}{0.01pt}
 
 \RequirePackage{amsmath}
 \RequirePackage{amssymb}

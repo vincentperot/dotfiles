@@ -177,6 +177,7 @@ alias cslab="ssh -l eringrant cs.toronto.edu"
 alias python="python3.4"
 alias ipython="ipython3"
 alias nb="ipython3 notebook --profile improvedcs"
+alias julianb="ipython3 notebook --profile julia"
 
 # Alias to use python checking script.
 alias pep8="python ~/Documents/'Coding Practice Sandbox'/pep8.py"
@@ -216,6 +217,7 @@ alias gb='git branch'
 alias gc='git commit'
 alias gd='git diff'
 alias go='git checkout'
+alias gp='git push'
 alias gk='gitk --all&'
 alias gx='gitx --all'
 
