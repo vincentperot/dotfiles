@@ -241,3 +241,12 @@ alias springcleaning="rm -f *.aux *.log *.dvi *.out *~ *.junk"
 # Add a home directory bin folder to the path.
 export PATH=~/bin:$PATH
 export PATH=~/local/bin:$PATH
+export CUDA_BIN=/usr/local/cuda-5.0/bin
+export CUDA_LIB=/usr/local/cuda-5.0/lib64
+export PATH=${CUDA_BIN}:$PATH
+export LD_LIBRARY_PATH=${CUDA_LIB}:$LD_LIBRARY_PATH
+export PYLEARN2_DATA_PATH=~/Git/csc411-A4/python/data
+export PYLEARN2_VIEWER_COMMAND="eog --new-instance"
+
+# decrease pickle size
+export PYLEARN2_PICKLE_PROTOCOL='pickle.HIGHEST_PROTOCOL'
