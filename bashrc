@@ -241,3 +241,10 @@ alias springcleaning="rm -f *.aux *.log *.dvi *.out *~ *.junk"
 # Add a home directory bin folder to the path.
 export PATH=~/bin:$PATH
 export PATH=~/local/bin:$PATH
+export PATH=~/mongodb/mongodb-linux-i686-2.6.5/bin:$PATH
+export PATH=$PATH:~/Jobman/bin/
+
+# Add stuff to PYTHONPATH
+export PYTHONPATH=$PYTHONPATH:~/spearmint/bin
+export PYTHONPATH=$PYTHONPATH:~/Git/csc411-A4/python
+export PYTHONPATH=$PYTHONPATH:~/Jobman/
