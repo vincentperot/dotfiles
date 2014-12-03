@@ -172,7 +172,6 @@ easy_extract () {
 # Add a home directory bin folder to the path.
 export PATH=~/bin:$PATH
 export PATH=~/local/bin:$PATH
-<<<<<<< HEAD
 export CUDA_BIN=/usr/local/cuda-5.0/bin
 export CUDA_LIB=/usr/local/cuda-5.0/lib64
 export PATH=${CUDA_BIN}:$PATH
