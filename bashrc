@@ -250,3 +250,6 @@ export PYLEARN2_VIEWER_COMMAND="eog --new-instance"
 
 # decrease pickle size
 export PYLEARN2_PICKLE_PROTOCOL='pickle.HIGHEST_PROTOCOL'
+
+# extreme compression
+export GZIP=-9
