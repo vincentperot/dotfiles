@@ -14,6 +14,10 @@ mv ~/.bashrc ${DIR}/backups/${NOW}_bashrc.backup
 ln -s ${DIR}/bashrc ~/.bashrc
 echo "Created bashrc symbolic link."
 
+mv ~/.bash_aliases ${DIR}/backups/${NOW}_bash_aliases.backup
+ln -s ${DIR}/bash_aliases ~/.bash_aliases
+echo "Created bash_aliases symbolic link."
+
 mv ~/.vimrc ${DIR}/backups/${NOW}_vimrc.backup
 ln -s ${DIR}/vimrc ~/.vimrc
 echo "Created vimrc symbolic link."

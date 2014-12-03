@@ -8,17 +8,6 @@ case $- in
       *) return;;
 esac
 
-# don't put duplicate lines or lines starting with space in the history.
-# See bash(1) for more options
-HISTCONTROL=ignoreboth
-
-# append to the history file, don't overwrite it
-shopt -s histappend
-
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
-
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
@@ -39,11 +28,6 @@ fi
 case "$TERM" in
     xterm-color) color_prompt=yes;;
 esac
-
-# uncomment for a colored prompt, if the terminal has the capability; turned
-# off by default to not distract the user: the focus in a terminal window
-# should be on the output of commands, not on the prompt
-#force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
@@ -113,6 +97,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# function to generate randomised password string
 genpasswd() {
 	local l=$1
        	[ "$l" == "" ] && l=16
@@ -130,7 +115,6 @@ alias cp='cp -i'
 alias mv='mv -i'
 
 # History not deleted upon terminal exit. Command is history.
-
 export HISTFILESIZE=20000
 export HISTSIZE=10000
 shopt -s histappend
@@ -142,7 +126,6 @@ HISTCONTROL=ignorespace
 export HISTIGNORE="&:ls:[bf]g:exit"
 
 # No more cd ../../../.. but up 4
-
 up() {
     local d=""
     limit=$1
@@ -157,48 +140,12 @@ up() {
     cd $d
 }
 
-
-# Aliases for frequently accessed folders.
-alias docs="cd ~/Documents/"
-alias dtp="cd ~/Desktop/"
-alias dls="cd ~/Downloads/"
-alias gitdir="cd ~/Git/"
-alias cps="cd ~/Documents/'Coding Practice Sandbox'"
-alias cl="cd ~/Git/cl-research-2014"
-alias 257="cd ~/Git/independent-coursework/mat257"
-alias 373="cd ~/Git/independent-coursework/csc373"
-alias 411="cd ~/Git/independent-coursework/csc411"
-alias a4="cd ~/Git/csc411-A4"
-alias 336="cd ~/Git/independent-coursework/csc336"
-alias 347="cd ~/Git/independent-coursework/sta347"
-
-# Aliases for CDF remote access.
-alias cdf="ssh c2grante@cdf.utoronto.ca"
-alias matlab="ssh -X c2grante@cdf.toronto.edu matlab"
-alias cslab="ssh -l eringrant cs.toronto.edu"
-alias comps="ssh -l eringrant comps3.cs.toronto.edu"
-
 # Print to cslab printer lw-283.
 lw-283 () {
     ssh -l eringrant cs.toronto.edu; 
     lpr -P lw-283 $1;
     exit
 }
-
-# Force use of python3.4.
-alias python="python3.4"
-alias ipython="ipython3"
-alias nb="ipython3 notebook --profile improvedcs"
-alias julianb="ipython3 notebook --profile julia"
-
-# Alias to use python checking script.
-alias pep8="python ~/Documents/'Coding Practice Sandbox'/pep8.py"
-
-# For compiling C programs.
-alias compile="gcc -Wall -g -o"
-
-# For converting files to .ogg
-alias convert_to_ogg="oggenc -q 3 -o"
 
 # Easy extract command.
 easy_extract () {
@@ -222,25 +169,10 @@ easy_extract () {
    fi
 }
 
-# git aliases
-alias gs='git status'
-alias ga='git add'
-alias gb='git branch'
-alias gc='git commit'
-alias gd='git diff'
-alias go='git checkout'
-alias gp='git push'
-alias gk='gitk --all&'
-alias gx='gitx --all'
-
-alias rswiki='cd ~/Git/research_wiki/; gitit &'
-
-# Clear the junk.
-alias springcleaning="rm -f *.aux *.log *.dvi *.out *~ *.junk"
-
 # Add a home directory bin folder to the path.
 export PATH=~/bin:$PATH
 export PATH=~/local/bin:$PATH
+<<<<<<< HEAD
 export CUDA_BIN=/usr/local/cuda-5.0/bin
 export CUDA_LIB=/usr/local/cuda-5.0/lib64
 export PATH=${CUDA_BIN}:$PATH
