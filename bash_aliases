@@ -5,11 +5,11 @@ alias dls="cd ~/Downloads/"
 alias gitdir="cd ~/Git/"
 alias cps="cd ~/Documents/'Coding Practice Sandbox'"
 alias cl="cd ~/Git/cl-research-2014"
+alias wl="cd ~/Git/word_learning/current_model"
 alias 257="cd ~/Git/independent-coursework/mat257"
 alias 373="cd ~/Git/independent-coursework/csc373"
 alias 411="cd ~/Git/independent-coursework/csc411"
-alias 336="cd ~/Git/independent-coursework/csc336"
-alias 347="cd ~/Git/independent-coursework/sta347"
+alias 347="cd ~/Git/course-notes/sta347"
 
 # Aliases for CDF remote access.
 alias cdf="ssh c2grante@cdf.utoronto.ca"
