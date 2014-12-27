@@ -1,0 +1,12 @@
+" To add a new bundle, add one line for each bundle you want to install.
+" The line should start with the word "Bundle" followed by a string of either
+" the vim.org project name or the githubusername/githubprojectname. For
+" example, the github project spf13/vim-colors can be added with the following
+" command:
+"   echo Bundle \'spf13/vim-colors\' >> ~/.vimrc.bundles.local
+"
+" Once new plugins are added, they need to be installed:
+"   vim +BundleInstall! +BundleClean +q
+
+Bundle 'SirVer/ultisnips'
+Bundle 'honza/vim-snippets''

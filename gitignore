@@ -1,0 +1,87 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+env/
+bin/
+build/
+develop-eggs/
+dist/
+eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.cache
+nosetests.xml
+coverage.xml
+
+# Translations
+*.mo
+
+# Mr Developer
+.mr.developer.cfg
+.project
+.pydevproject
+
+# Rope
+.ropeproject
+
+# Django stuff:
+*.log
+*.pot
+
+# Sphinx documentation
+docs/_build/
+
+#iPython Stuff
+.ipynb_checkpoints
+
+#LaTeX Stuff
+*.aux
+*.dvi
+*.log
+*.out
+*.project.vim
+*.sty
+*.bbl
+*.blg
+*.bcf
+*.run.xml
+*.bak
+
+# Gedit garbage
+*.py~
+*.tex~
+
+# Just garbage.
+*.junk
+.nfs*
+
+# R stuff
+.RData
+.Rhistory
+
+# Folders to ignore
+*.folder
+
+# Hidden files
+.*

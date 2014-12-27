@@ -1,0 +1,12 @@
+color neon
+
+" To remove default bundles, add the UnBundle command to this file. 
+" It takes the same input as the Bundle line, so simply copy the line 
+" you want to disable from .vimrc,bundles and add 'Un' to the beginning.
+" 
+" For example, disabling the 'AutoClose' and 'scrooloose/syntastic' plugins
+" 
+"     echo UnBundle \'AutoClose\' >> ~/.vimrc.local
+"     echo UnBundle \'scrooloose/syntastic\' >> ~/.vimrc.local
+" 
+"  Remember to run ':BundleClean!' after this to remove the existing directories.

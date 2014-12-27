@@ -23,9 +23,6 @@ alias comps="ssh -l eringrant comps3.cs.toronto.edu"
 #alias nb="ipython3 notebook --profile improvedcs"
 #alias julianb="ipython3 notebook --profile julia"
 
-# Alias to use python checking script.
-alias pep8="python ~/Documents/'Coding Practice Sandbox'/pep8.py"
-
 # For compiling C programs.
 alias compile="gcc -Wall -g -o"
 

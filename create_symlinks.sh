@@ -1,10 +1,6 @@
-#!/bin/bash
-
+#!/bin/bash 
 DIR="$( cd "$( dirname "$0" )" && pwd )"
-NOW=$(date +"%m-%d-%Y")
-
-# make sure that the directories exist
-mkdir -p ${DIR}/backups
+NOW=$(date +"%m-%d-%Y") # make sure that the directories exist mkdir -p ${DIR}/backups
 mkdir -p ~/texmf/
 mkdir -p ~/texmf/tex/
 mkdir -p ~/texmf/tex/latex/
@@ -22,6 +18,26 @@ mv ~/.vimrc ${DIR}/backups/${NOW}_vimrc.backup
 ln -s ${DIR}/vimrc ~/.vimrc
 echo "Created vimrc symbolic link."
 
+mv ~/.vimrc.local ${DIR}/backups/${NOW}_vimrc.local.backup
+ln -s ${DIR}/vimrc.local ~/.vimrc.local
+echo "Created vimrc.local symbolic link."
+
+mv ~/.vimrc.before ${DIR}/backups/${NOW}_vimrc.before.backup
+ln -s ${DIR}/vimrc.before ~/.vimrc.before
+echo "Created vimrc.before symbolic link."
+
+mv ~/.vimrc.before.local ${DIR}/backups/${NOW}_vimrc.before.local.backup
+ln -s ${DIR}/vimrc.before.local ~/.vimrc.before.local
+echo "Created vimrc.before.local symbolic link."
+
+mv ~/.vimrc.bundles ${DIR}/backups/${NOW}_vimrc.bundles.backup
+ln -s ${DIR}/vimrc.bundles ~/.vimrc.bundles
+echo "Created vimrc.bundles symbolic link."
+
+mv ~/.vimrc.bundles.local ${DIR}/backups/${NOW}_vimrc.bundles.local.backup
+ln -s ${DIR}/vimrc.bundles.local ~/.vimrc.bundles.local
+echo "Created vimrc.bundles.local symbolic link."
+
 mv ~/matlab.m ${DIR}/backups/${NOW}_matlab.m.backup
 ln -s ${DIR}/matlab ~/matlab.m
 echo "Created matlab.m symbolic link."
@@ -29,6 +45,10 @@ echo "Created matlab.m symbolic link."
 mv ~/texmf/tex/latex/assignment.cls ${DIR}/backups/${NOW}_assignment.cls.backup
 ln -s ${DIR}/assignment.cls ~/texmf/tex/latex/assignment.cls
 echo "Created assignment.cls symbolic link."
+
+mv ~/texmf/tex/latex/notes.cls ${DIR}/backups/${NOW}_notes.cls.backup
+ln -s ${DIR}/notes.cls ~/texmf/tex/latex/notes.cls
+echo "Created notes.cls symbolic link."
 
 mv ~/texmf/tex/latex/selfdefcommands.sty ${DIR}/backups/${NOW}_selfdefcommands.sty.backup
 ln -s ${DIR}/selfdefcommands.sty ~/texmf/tex/latex/selfdefcommands.sty
@@ -64,3 +84,14 @@ echo "Created beamerposter.sty symbolic link."
 
 ln -s ${DIR}/neon.vim ~/.vim/colors/neon.vim
 echo "Created vim neon colour file symbolic link."
+
+mv ~/.config/git/ignore ${DIR}/backups/${NOW}_gitignore.backup
+ln -s ${DIR}/gitignore ~/.config/git/ignore
+echo "Created gitignore symbolic link."
+
+mv ~/texmf/tex/latex/references.bib ${DIR}/backups/${NOW}_references.bib.backup
+ln -s ${DIR}/references.bib ~/texmf/tex/latex/references.bib
+echo "Created references.bib symbolic link."
+
+vim +BundleInstall! +BundleClean +q
+echo "Installed all vundle bundles."
