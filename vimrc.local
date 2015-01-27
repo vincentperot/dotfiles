@@ -1,4 +1,4 @@
-color neon
+let g:LatexBox_latexmk_options = "-pvc -pdfps"
 
 " To remove default bundles, add the UnBundle command to this file. 
 " It takes the same input as the Bundle line, so simply copy the line 

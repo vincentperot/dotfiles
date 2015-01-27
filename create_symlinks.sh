@@ -93,5 +93,6 @@ mv ~/texmf/tex/latex/references.bib ${DIR}/backups/${NOW}_references.bib.backup
 ln -s ${DIR}/references.bib ~/texmf/tex/latex/references.bib
 echo "Created references.bib symbolic link."
 
-vim +BundleInstall! +BundleClean +q
+git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+vim +BundleInstall! +BundleClean +qall
 echo "Installed all vundle bundles."

@@ -7,6 +7,3 @@
 "
 " Once new plugins are added, they need to be installed:
 "   vim +BundleInstall! +BundleClean +q
-
-Bundle 'SirVer/ultisnips'
-Bundle 'honza/vim-snippets''

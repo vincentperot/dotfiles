@@ -43,7 +43,7 @@
 
 " General {
 
-    set background=dark         " Assume a dark background
+    set background=light         " Assume a dark background
     " if !has('gui')
         "set term=$TERM          " Make arrow and other keys work
     " endif
@@ -75,7 +75,6 @@
     set viewoptions=folds,options,cursor,unix,slash " Better Unix / Windows compatibility
     set virtualedit=onemore             " Allow for cursor beyond last character
     set history=1000                    " Store a ton of history (default is 20)
-    set spell                           " Spell checking on
     set hidden                          " Allow buffer switching without saving
     set iskeyword-=.                    " '.' is an end of word designator
     set iskeyword-=#                    " '#' is an end of word designator
@@ -137,7 +136,7 @@
     set tabpagemax=15               " Only show 15 tabs
     set showmode                    " Display the current mode
 
-    set cursorline                  " Highlight current line
+    "set cursorline                  " Highlight cu""rrent line
 
     highlight clear SignColumn      " SignColumn should match background
     highlight clear LineNr          " Current line number row will have same background color in relative mode
@@ -157,7 +156,7 @@
         set statusline=%<%f\                     " Filename
         set statusline+=%w%h%m%r                 " Options
         if !exists('g:override_spf13_bundles')
-            set statusline+=%{fugitive#statusline()} " Git Hotness
+            set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''} " Git Hotness
         endif
         set statusline+=\ [%{&ff}/%Y]            " Filetype
         set statusline+=\ [%{getcwd()}]          " Current dir
@@ -186,6 +185,8 @@
 
 " Formatting {
 
+    set textwidth=80
+    set formatoptions+=t
     set nowrap                      " Do not wrap long lines
     set autoindent                  " Indent at the same level of the previous line
     set shiftwidth=4                " Use indents of 4 spaces
@@ -641,7 +642,6 @@
 
     " YouCompleteMe {
         if count(g:spf13_bundle_groups, 'youcompleteme')
-            let g:acp_enableAtStartup = 0
 
             " enable completion from tags
             let g:ycm_collect_identifiers_from_tags_files = 1
@@ -1135,3 +1135,14 @@
         endif
     endif
 " }
+
+    " Spelling
+    set spell spelllang=en_ca                          " Spell checking on
+    hi clear SpellBad
+    hi SpellBad term=underline cterm=underline
+    hi clear SpellCap
+    hi SpellCap term=underline cterm=underline
+    hi clear SpellRare
+    hi SpellRare term=underline cterm=underline
+    hi clear SpellLocal
+    hi SpellLocal term=underline cterm=underline
