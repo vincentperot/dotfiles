@@ -26,6 +26,7 @@
 
 \RequirePackage{amsmath}
 \RequirePackage{amssymb}
+\RequirePackage{amsthm}
 
 % Title bars
 \def\toptitlebar{\hrule height4pt\vskip .25in\vskip-\parskip}
