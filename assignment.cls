@@ -69,20 +69,21 @@
 % problem-solution formatting
 % Set up counters for problems and subsections
  
-\newcounter{ProblemNum}
-\newcounter{SubProblemNum}[ProblemNum]
- 
-\renewcommand{\theProblemNum}{\arabic{ProblemNum}}
-\renewcommand{\theSubProblemNum}{\alph{SubProblemNum}}
- 
-\newcommand*{\anyproblem}[1]{\subsection*{#1}}
-\newcommand*{\problem}[1]{\stepcounter{ProblemNum} %
-\anyproblem{Problem \theProblemNum\vskip.04in\hrule\vskip.09in #1}}
-\renewcommand*{\part}[1]{\stepcounter{SubProblemNum} %
-\noindent\textbf{\vspace{10pt}\\\hspace*{15pt}Part (\theSubProblemNum)} \; \hangindent=15pt #1 \vspace{15pt}}
+\newcounter{problemCounter}
 
-\newenvironment{solution}{\hspace*{15pt}\textbf{Solution} \; \hangindent=30pt \vspace{10pt}}{}
- 
-%\renewcommand{\theenumi}{(\alph{enumi})}
-%\renewcommand{\labelenumi}{\theenumi}
-%\renewcommand{\theenumii}{\roman{enumii}}
+\newcommand{\problemName}{}
+\newenvironment{problem}[1][Problem \arabic{problemCounter}]{%
+    \stepcounter{problemCounter} % Increase counter for number of problems
+    \renewcommand{\problemName}{#1} % Assign \problemName the name of the problem
+    \section*{\problemName} % Make a section in the document with the custom problem count
+    \vspace{-0.1cm} \hrule\vspace{0.3cm}
+    \renewcommand{\theenumi}{(\alph{enumi})}
+    \renewcommand{\labelenumi}{\theenumi}
+    \renewcommand{\theenumii}{\roman{enumii}.}
+    \renewcommand{\labelenumii}{\theenumii}
+}   
+
+\newcommand{\solution}[1]{% Defines the problem answer command with the content as the only argument
+    \noindent\framebox[\columnwidth][c]{\begin{minipage}{0.98\columnwidth}#1\end{minipage}}
+    % Makes the box around the problem answer and puts the content inside
+}
