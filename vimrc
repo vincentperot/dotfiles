@@ -404,6 +404,8 @@
 " }
 
 " Plugins {
+    " LaTex symbol concealment
+    let g:tex_conceal = ""
 
     " TextObj Sentence {
         if count(g:spf13_bundle_groups, 'writing')

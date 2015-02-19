@@ -2,6 +2,9 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+# Fix the backspace key if necessary
+stty erase ^?
+
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;

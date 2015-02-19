@@ -84,6 +84,7 @@
 }   
 
 \newcommand{\solution}[1]{% Defines the problem answer command with the content as the only argument
+    \vspace{0.2cm}
     \noindent\framebox[\columnwidth][c]{\begin{minipage}{0.98\columnwidth}#1\end{minipage}}
     % Makes the box around the problem answer and puts the content inside
 }
