@@ -6,6 +6,7 @@
 \RequirePackage[letterpaper, margin=2.54cm]{geometry}
 \RequirePackage{fancyhdr}
 \RequirePackage{etoolbox}
+\RequirePackage[style=2]{mdframed}
 
 % commands to set title and header block info
 \def\title#1{\gdef\@title{#1}\gdef\stored@title{#1}}
@@ -83,8 +84,11 @@
     \renewcommand{\labelenumii}{\theenumii}
 }   
 
-\newcommand{\solution}[1]{% Defines the problem answer command with the content as the only argument
+% Defines the problem answer command with the content as the only argument
+\newcommand{\solution}[1]{
     \vspace{0.2cm}
-    \noindent\framebox[\columnwidth][c]{\begin{minipage}{0.98\columnwidth}#1\end{minipage}}
-    % Makes the box around the problem answer and puts the content inside
+    \noindent
+    \begin{mdframed}
+        #1
+    \end{mdframed}
 }
