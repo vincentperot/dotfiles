@@ -6,6 +6,7 @@
 \RequirePackage[letterpaper, margin=2.54cm]{geometry}
 \RequirePackage{fancyhdr}
 \RequirePackage{etoolbox}
+\RequirePackage[style=2]{mdframed}
 
 % commands to set title and header block info
 \def\title#1{\gdef\@title{#1}\gdef\stored@title{#1}}
@@ -26,6 +27,7 @@
 
 \RequirePackage{amsmath}
 \RequirePackage{amssymb}
+\RequirePackage{amsthm}
 
 % Title bars
 \def\toptitlebar{\hrule height4pt\vskip .25in\vskip-\parskip}
@@ -68,20 +70,25 @@
 % problem-solution formatting
 % Set up counters for problems and subsections
  
-\newcounter{ProblemNum}
-\newcounter{SubProblemNum}[ProblemNum]
- 
-\renewcommand{\theProblemNum}{\arabic{ProblemNum}}
-\renewcommand{\theSubProblemNum}{\alph{SubProblemNum}}
- 
-\newcommand*{\anyproblem}[1]{\subsection*{#1}}
-\newcommand*{\problem}[1]{\stepcounter{ProblemNum} %
-\anyproblem{Problem \theProblemNum\vskip.04in\hrule\vskip.09in #1}}
-\renewcommand*{\part}[1]{\stepcounter{SubProblemNum} %
-\noindent\textbf{\vspace{10pt}\\\hspace*{15pt}Part (\theSubProblemNum)} \; \hangindent=15pt #1 \vspace{15pt}}
+\newcounter{problemCounter}
 
-\newenvironment{solution}{\hspace*{15pt}\textbf{Solution} \; \hangindent=30pt \vspace{10pt}}{}
- 
-%\renewcommand{\theenumi}{(\alph{enumi})}
-%\renewcommand{\labelenumi}{\theenumi}
-%\renewcommand{\theenumii}{\roman{enumii}}
+\newcommand{\problemName}{}
+\newenvironment{problem}[1][Problem \arabic{problemCounter}]{%
+    \stepcounter{problemCounter} % Increase counter for number of problems
+    \renewcommand{\problemName}{#1} % Assign \problemName the name of the problem
+    \section*{\problemName} % Make a section in the document with the custom problem count
+    \vspace{-0.1cm} \hrule\vspace{0.3cm}
+    \renewcommand{\theenumi}{(\alph{enumi})}
+    \renewcommand{\labelenumi}{\theenumi}
+    \renewcommand{\theenumii}{\roman{enumii}.}
+    \renewcommand{\labelenumii}{\theenumii}
+}   
+
+% Defines the problem answer command with the content as the only argument
+\newcommand{\solution}[1]{
+    \vspace{0.2cm}
+    \noindent
+    \begin{mdframed}
+        #1
+    \end{mdframed}
+}
