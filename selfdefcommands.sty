@@ -97,7 +97,7 @@
         emphstyle=[2]
         }
     }
-}
+{}
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % Miscellaneous formatting
@@ -110,13 +110,14 @@
 % TeX trick so that math symbols are bold when text is.
 \let\seiresfb\bfseries\def\bfseries{\boldmath\seiresfb}
 \let\seiresdm\mdseries\def\mdseries{\unboldmath\seiresdm}
-\newcommand*\bbmath[1]{\ensuremath{\mathbb{#1}}
+\newcommand*\bbmath[1]{\ensuremath{\mathbb{#1}}}
 
 % Spacing macros with default argument.
 \providecommand*\vfillstretch[1][1]{\vspace*{\stretch{#1}}}
 \providecommand*\hfillstretch[1][1]{\hspace*{\stretch{#1}}}
 
 % Abbreviations of latin phrases.
+\usepackage{expl3}
 \let\latinabb\empty  % no special formatting
 \providecommand*\ie{\latinabb{i.e., }}
 \providecommand*\eg{\latinabb{e.g., }}
@@ -209,12 +210,15 @@
 
 % probability operators
 \renewcommand*{\P}[1]{\mathbb{P}\left(#1\right)}
-\newcommand*{\E}[1]{\mathbb{E}\left[#1\right]}
+\newcommand*{\E}[2]{\mathbb{E}_{#1}\left[#2\right]}
 \newcommand*{\Var}[1]{\text{Var}\left[#1\right]}
 \newcommand*{\Cov}[1]{\text{Cov}\left[#1\right]}
 
 % statistics operators
 \newcommand*{\eqdist}{\;{\buildrel d \over =}\;}
+\newcommand*{\iid}{\;\text{IID}\;}
+\newcommand*{\mme}{\text{mme}}
+\newcommand*{\mle}{\text{mle}}
 
 % proof idea syntax
 \newenvironment{proofidea}{\noindent{\textit{Proof idea.}}}{\hfill$\square$\\\\}
