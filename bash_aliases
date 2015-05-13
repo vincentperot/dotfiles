@@ -8,7 +8,7 @@ alias cv="cd ~/Git/cv-research-2015"
 alias wl="cd ~/Git/word_learning/current_model"
 
 # Aliases for CDF remote access.
-alias cdf="ssh c2grante@cdf.utoronto.ca"
+alias cdf="ssh g5egrant@cdf.utoronto.ca"
 alias apps="ssh -l eringrant cs.toronto.edu"
 alias comps="ssh -l eringrant comps3.cs.toronto.edu"
 
