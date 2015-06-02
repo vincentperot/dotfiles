@@ -2,7 +2,7 @@
 \ProvidesPackage{selfdefcommands}
 
 % Dependencies
-\RequirePackage[algoruled,lined,longend,linesnumbered,rightnl]{algorithm2e}
+\RequirePackage[algoruled,lined,longend,linesnumbered]{algorithm2e}
 \RequirePackage{amsmath}
 \RequirePackage{amsfonts}
 \RequirePackage{amsthm}
@@ -150,6 +150,7 @@
 \setlength{\ULdepth}{.2ex}
 
 % General math macros.
+\newcommand*\argmax[1]{\text_{#1}}
 \newcommand*\hiderel[1]{\mathrel{\hphantom{#1}}}
 
 % Redefined symbols from amssymb.
