@@ -171,3 +171,19 @@ export PYTHONPATH=~/Python:$PYTHONPATH
 
 # extreme compression
 export GZIP=-9
+
+# CUDA compatibility
+if [ "${HOSTNAME:0:5}" == "guppy" ]; then
+        export CUDA_HOME="/pkgs_local/cuda-5.5"
+elif [ "${HOSTNAME:0:12}" == "deeplearning" ]; then
+        export CUDA_HOME="/pkgs/cuda-5.5"
+elif [ "${HOSTNAME:0:7}" == "cluster" ]; then
+        export CUDA_HOME="/pkgs/cuda-5.5"
+elif [ "${HOSTNAME:0:6}" == "krunch" ]; then
+        export CUDA_HOME="/pkgs_local/cuda-5.5"
+fi
+
+if [ -n ${CUDA_HOME}:+word} ]; then
+        export PATH="${PATH}:${CUDA_HOME}/bin"
+        export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${CUDA_HOME}/lib:${CUDA_HOME}/lib64"
+fi
