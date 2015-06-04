@@ -5,7 +5,7 @@ alias dls="cd ~/Downloads/"
 alias gitdir="cd ~/Git/"
 alias cl="cd ~/Git/cl-research-2014"
 alias cv="cd ~/Git/cv-research-2015"
-alias cv="cd ~/Git/cv-research-2015"
+alias ds="cd ~/Git/depth-seg"
 alias wl="cd ~/Git/word_learning/current_model"
 
 # Aliases for CDF and CSLab remote access.
