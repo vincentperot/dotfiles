@@ -2,29 +2,29 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
-# If not running interactively, don't do anything
+# If not running interactively, don't do anything.
 case $- in
     *i*) ;;
       *) return;;
 esac
 
-# check the window size after each command and, if necessary,
+# Check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
-#shopt -s globstar
+shopt -s globstar
 
-# make less more friendly for non-text input files, see lesspipe(1)
+# Make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-# set variable identifying the chroot you work in (used in the prompt below)
+# Set variable identifying the chroot you work in (used in the prompt below)
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
 
-# set a fancy prompt (non-color, unless we know we "want" color)
+# Set a fancy prompt (non-color, unless we know we "want" color).
 case "$TERM" in
     xterm-color) color_prompt=yes;;
 esac
@@ -47,7 +47,7 @@ else
 fi
 unset color_prompt force_color_prompt
 
-# If this is an xterm set the title to user@host:dir
+# If this is an xterm set the title to user@host:dir.
 case "$TERM" in
 xterm*|rxvt*)
     PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
@@ -56,7 +56,7 @@ xterm*|rxvt*)
     ;;
 esac
 
-# enable color support of ls and also add handy aliases
+# Enable color support of ls and also add handy aliases.
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
@@ -68,7 +68,7 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# some more ls aliases
+# Some more ls aliases.
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
@@ -77,12 +77,12 @@ alias l='ls -CF'
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
-# Alias definitions.
+# Define aliases in an external file.
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-# enable programmable completion features (you don't need to enable
+# Enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
 if ! shopt -oq posix; then
@@ -93,19 +93,21 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# function to generate randomised password string
+# Generate a randomised password string.
 genpasswd() {
 	local l=$1
        	[ "$l" == "" ] && l=16
       	tr -dc A-Za-z0-9_ < /dev/urandom | head -c ${l} | xargs
 }
 
-export TERM="xterm-256color" # enables 256 colours & some other features
+# Enable 256 colours & some other features.
+export TERM="xterm-256color"
 
+# Set the default editor.
 export GIT_EDITOR=/usr/bin/vim
 export EDITOR=/usr/bin/vim
 
-# some aliases to force an "are you sure?" if action might result in data loss
+# Define some aliases to force an "are you sure?" if action might result in data loss.
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
@@ -114,8 +116,10 @@ alias mv='mv -i'
 export HISTFILESIZE=20000
 export HISTSIZE=10000
 shopt -s histappend
+
 # Combine multiline commands into one in history
 shopt -s cmdhist
+
 # Ignore duplicates, ls without options and builtin commands
 HISTCONTROL=ignoredups
 HISTCONTROL=ignorespace
@@ -134,12 +138,6 @@ up() {
         d=..
     fi
     cd $d
-}
-
-# Print to cslab printer lw-283.
-lw-283 () {
-    lpr -P lw-283 $1;
-    exit
 }
 
 # Easy extract command.
@@ -169,10 +167,14 @@ export PATH=~/bin:$PATH
 export PATH=~/local/bin:$PATH
 export PYTHONPATH=~/Python:$PYTHONPATH
 
-# extreme compression
+# Extreme compression for gzip.
 export GZIP=-9
 
-# CUDA compatibility
+##############################################################################
+# CSLab Deep Learning
+##############################################################################
+
+# CUDA compatibility.
 if [ "${HOSTNAME:0:5}" == "guppy" ]; then
         export CUDA_HOME="/pkgs_local/cuda-5.5"
 elif [ "${HOSTNAME:0:12}" == "deeplearning" ]; then
@@ -187,3 +189,28 @@ if [ -n ${CUDA_HOME}:+word} ]; then
         export PATH="${PATH}:${CUDA_HOME}/bin"
         export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${CUDA_HOME}/lib:${CUDA_HOME}/lib64"
 fi
+
+# MPICH (message-passing for distributed-memory apps in parallel computing) compatibility.
+if [ "${HOSTNAME:0:5}" == "guppy" ]; then
+    export PATH="/pkgs/mpich-3.0.4/bin:${PATH}"
+    export LD_LIBRARY_PATH="/pkgs/mpich-3.0.4/lib/x86_64-linux-gnu/:${LD_LIBRARY_PATH}"
+elif [ "${HOSTNAME:0:12}" == "deeplearning" ]; then
+    export PATH="/pkgs/mpich-3.0.4/bin:${PATH}"
+    export LD_LIBRARY_PATH="/pkgs/mpich-3.0.4/lib/x86_64-linux-gnu/:${LD_LIBRARY_PATH}"
+elif [ "${HOSTNAME:0:7}" == "cluster" ]; then
+    export PATH="/pkgs/mpich-3.0.4/bin:${PATH}"
+    export LD_LIBRARY_PATH="/pkgs/mpich-3.0.4/lib/x86_64-linux-gnu/:${LD_LIBRARY_PATH}"
+elif [ "${HOSTNAME:0:6}" == "krunch" ]; then
+    export PATH="/pkgs/mpich-3.0.4/bin:${PATH}"
+    export LD_LIBRARY_PATH="/pkgs/mpich-3.0.4/lib/x86_64-linux-gnu/:${LD_LIBRARY_PATH}"
+fi
+
+# GPU control.
+alias checkgpu='/u/tang/bin/gpu_lock2.py'
+alias lockgpu='/u/tang/bin/gpu_lock2.py --id'
+hoggpu() {
+    u/tang/bin/gpu_lock2.py --id-to-hog $1
+}
+freegpu() {
+    u/tang/bin/gpu_lock2.py --free $1
+}

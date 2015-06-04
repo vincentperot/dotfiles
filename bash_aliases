@@ -5,12 +5,14 @@ alias dls="cd ~/Downloads/"
 alias gitdir="cd ~/Git/"
 alias cl="cd ~/Git/cl-research-2014"
 alias cv="cd ~/Git/cv-research-2015"
+alias cv="cd ~/Git/cv-research-2015"
 alias wl="cd ~/Git/word_learning/current_model"
 
-# Aliases for CDF remote access.
-alias cdf="ssh g5egrant@cdf.utoronto.ca"
+# Aliases for CDF and CSLab remote access.
+alias cdf="ssh c2grante@cdf.utoronto.ca"
 alias apps="ssh -l eringrant cs.toronto.edu"
 alias comps="ssh -l eringrant comps3.cs.toronto.edu"
+alias guppy="ssh -l eringrant guppy7.cs.toronto.edu"
 
 # Force use of python3.4.
 #alias python="python3.4"
